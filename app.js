@@ -24,7 +24,6 @@ const userIds = [
   ["268964485555945473", "Splash"],
 ];
 
-// const list = document.querySelector("#players");
 const list = document.querySelectorAll("[name='playerlist']");
 
 userIds.forEach((item) => {
@@ -41,16 +40,8 @@ userIds.forEach((item) => {
   list[3].appendChild(option4);
 });
 
-// players.forEach((item) => {
-//   let option = document.createElement("option");
-//   option.value = item;
-//   //list.forEach((e) => {
-//   list.appendChild(option);
-//   //});
-// });
-
 // function results(r1, r2, r3, r4) {
-//   console.log(`/game record game: MGSR 1v1 result: #1 ${r1} #2 ${r2}`);
+//   console.log(`/game record leaderboard: MGSR 1v1 result: #1 ${r1} #2 ${r2}`);
 // }
 
 // results(players[0], players[1]);
@@ -92,9 +83,6 @@ function copyClipboard() {
 
   /* Copy the text inside the text field */
   navigator.clipboard.writeText(copyText.value);
-
-  /* Alert the copied text */
-  //alert("Copied the text: " + copyText.value);
 }
 
 /* Function below works on the leaderboard page, not actually this page.
