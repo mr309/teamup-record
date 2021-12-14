@@ -67,6 +67,14 @@ function AddResult(button) {
   }
 }
 
+function ffaOutput() {
+  // Need to output the individual commands for each pairing
+  // For a 1,2,3,4 match, this would be 6 commands
+  // For a 1,2,3 (or 1,1,3), it would be 3 commands
+  // for a 1,2 (or 1,1), just 1 command
+  // Have to test for ties
+}
+
 function reset() {
   let fields = document.querySelectorAll("input");
   fields.forEach((e) => (e.value = ""));

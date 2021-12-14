@@ -84,6 +84,10 @@
             text-shadow: 1px 1px 1px black;
         }
 
+        .place {
+            width: 1.6em;
+        }
+
     </style>
 </head>
 
@@ -95,32 +99,45 @@
     </div>
     <div class="fairway">
        
-        <label for="playerlist">First Place</label>
-        <br>
-        <select name="playerlist" list="players" id="firstplace">
+        <label for="placement">Place:</label>
+        <input class="place" list="placements" name="placement" id="placement1">
+        <select  name="playerlist" list="players" id="firstplace">
             <option label=" "></option>
         </select>
             <button id="1st" onclick="AddResult(this)">Add</button>
         <br>
-        <label for="playerlist">Second Place</label><br>
-        <select name="playerlist" list="players" id="secondplace">
+        <label for="placement">Place:</label>
+        <input class="place" list="placements" name="placement" id="placement2">
+        <select  name="playerlist" list="players" id="secondplace">
             <option label=" "></option>
         </select>
             <button id="2nd" onclick="AddResult(this)">Add</button>
         <br>
-        <p style="display: none">
-        <label for="playerlist">Third Place</label><br>
-        <select name="playerlist" list="players" id="thirdplace">
+        <label for="placement">Place:</label>
+        <input class="place" list="placements" name="placement" id="placement3">
+        <select  name="playerlist" list="players" id="thirdplace">
             <option label=" "></option>
         </select>
             <button id="3rd" onclick="AddResult(this)">Add</button>  
         <br>
-        <label for="playerlist">Fourth Place</label><br>
-        <select name="playerlist" list="players" id="fourthplace">
+        <label for="placement">Place:</label>
+        <input class="place" list="placements" name="placement" id="placement4">
+        <select  name="playerlist" list="players" id="fourthplace">
             <option label=" "></option>
         </select>
             <button id="4th" onclick="AddResult(this)">Add</button>
-        </p>  
+        
+        <p>
+            <button id="ffa" onclick="">Output FFA</button>
+        </p>
+
+        <datalist id="placements">
+          <option value="#1">
+          <option value="#2">
+          <option value="#3">
+          <option value="#4">
+        </datalist>
+
     </div>
     <div class="fairway">
         
