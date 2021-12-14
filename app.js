@@ -1,28 +1,3 @@
-/*
-const players = [
-  "@mr309#3290",
-  "@__Henry__#9095",
-  "@Andrew-Morse#8509",
-  "@Master Bates#4935",
-  "@Goosebumps#8209",
-  "@igonnawrecku#1386",
-  "@InvinciBeard#3473",
-  "@leftytehllama#8951",
-  "@Me, Ed#3697",
-  "@Michael722#2048",
-  "@PatsWhatImTalkinAbout#2731",
-  "@strangemusic#5017",
-  "@Rabbit#5852",
-  "@Splash#0972",
-  "@The Mario Odyssey#6494",
-  "@🐙MistahKush#5119",
-  "@jrichgames#5710",
-  "@zetite#0422",
-  "@WoogieGeezer#9537",
-  "@Hamm#1714",
-];
-*/
-
 const userIds = [
   ["488098500765024263", "Me, Ed"],
   ["516493086524964866", "__Henry__"],
