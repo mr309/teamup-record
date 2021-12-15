@@ -1,3 +1,22 @@
+const gameState = {
+  1: {
+    place: "",
+    user: "",
+  },
+  2: {
+    place: "",
+    user: "",
+  },
+  3: {
+    place: "",
+    user: "",
+  },
+  4: {
+    place: "",
+    user: "",
+  },
+};
+
 const userIds = [
   ["488098500765024263", "Me, Ed"],
   ["516493086524964866", "__Henry__"],
@@ -40,6 +59,9 @@ userIds.forEach((item) => {
   list[3].appendChild(option4);
 });
 
+// Need to update global object on changes
+// .addEventListener("change", (e)=>{console.log(e.currentTarget.value)})
+
 // function results(r1, r2, r3, r4) {
 //   console.log(`/game record leaderboard: MGSR 1v1 result: #1 ${r1} #2 ${r2}`);
 // }
@@ -65,6 +87,10 @@ function AddResult(button) {
   if (button.id == "4th") {
     resultsBox.value += " #4 " + document.getElementById("fourthplace").selectedOptions[0].getAttribute("data-userid");
   }
+}
+
+function updateState(e) {
+  // Update global object with selected values
 }
 
 function ffaOutput() {

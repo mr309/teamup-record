@@ -85,7 +85,7 @@
         }
 
         .place {
-            width: 1.6em;
+            width: 2.4em;
         }
 
     </style>
@@ -100,30 +100,30 @@
     <div class="fairway">
        
         <label for="placement">Place:</label>
-        <input class="place" list="placements" name="placement" id="placement1">
+        <input class="place" type="number" min="1" max="4" value="" id="placement1" list="placements">
         <select  name="playerlist" list="players" id="firstplace">
-            <option label=" "></option>
+            <option value="none" selected disabled hidden>Select a player</option>
         </select>
             <button id="1st" onclick="AddResult(this)">Add</button>
         <br>
         <label for="placement">Place:</label>
-        <input class="place" list="placements" name="placement" id="placement2">
+        <input class="place" type="number" min="1" max="4" value="" id="placement2" list="placements">
         <select  name="playerlist" list="players" id="secondplace">
-            <option label=" "></option>
+            <option value="none" selected disabled hidden>Select a player</option>
         </select>
             <button id="2nd" onclick="AddResult(this)">Add</button>
         <br>
         <label for="placement">Place:</label>
-        <input class="place" list="placements" name="placement" id="placement3">
+        <input class="place" type="number" min="1" max="4" value="" id="placement3" list="placements">
         <select  name="playerlist" list="players" id="thirdplace">
-            <option label=" "></option>
+            <option value="none" selected disabled hidden>Select a player</option>
         </select>
             <button id="3rd" onclick="AddResult(this)">Add</button>  
         <br>
         <label for="placement">Place:</label>
-        <input class="place" list="placements" name="placement" id="placement4">
+        <input class="place" type="number" min="1" max="4" value="" id="placement4" list="placements" onchange="(function(){console.log(this.value)})()">
         <select  name="playerlist" list="players" id="fourthplace">
-            <option label=" "></option>
+            <option value="none" selected disabled hidden>Select a player</option>
         </select>
             <button id="4th" onclick="AddResult(this)">Add</button>
         
@@ -132,10 +132,10 @@
         </p>
 
         <datalist id="placements">
-          <option value="#1">
-          <option value="#2">
-          <option value="#3">
-          <option value="#4">
+          <option value="1">
+          <option value="2">
+          <option value="3">
+          <option value="4">
         </datalist>
 
     </div>
