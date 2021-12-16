@@ -17,6 +17,8 @@ const gameState = {
   },
 };
 
+const defaultCommand = "/game record leaderboard: MGSR 1v1 result:";
+
 const userIds = [
   ["488098500765024263", "Me, Ed"],
   ["516493086524964866", "__Henry__"],
@@ -57,6 +59,7 @@ userIds.forEach((item) => {
   list[1].appendChild(option2);
   list[2].appendChild(option3);
   list[3].appendChild(option4);
+  debugger;
 });
 
 // Need to update global object on changes
@@ -89,22 +92,90 @@ function AddResult(button) {
   }
 }
 
-function updateState(e) {
+/*function updateState(e) {
   // Update global object with selected values
+  console.log(e);
+  if (e.id === "placement4") {
+    gameState[4].place = e.value;
+  }
+} */
+
+function updateState() {
+  // Update global object with selected values
+  // let firstPlace = document.getElementById("placement1");
+  let places = [
+    document.getElementById("placement1"),
+    document.getElementById("placement2"),
+    document.getElementById("placement3"),
+    document.getElementById("placement4"),
+  ];
+  let users = [
+    places[0].nextElementSibling.selectedOptions[0].getAttribute("data-userid"),
+    places[1].nextElementSibling.selectedOptions[0].getAttribute("data-userid"),
+    places[2].nextElementSibling.selectedOptions[0].getAttribute("data-userid"),
+    places[3].nextElementSibling.selectedOptions[0].getAttribute("data-userid"),
+  ];
+
+  Object.assign(gameState, {
+    1: {
+      place: places[0].value,
+      user: users[0],
+    },
+    2: {
+      place: places[1].value,
+      user: users[1],
+    },
+    3: {
+      place: places[2].value,
+      user: users[2],
+    },
+    4: {
+      place: places[3].value,
+      user: users[3],
+    },
+  });
+  console.log(gameState);
+  //need to add `<@!${ }>` around usernames, for proper command in Discord.
 }
 
 function ffaOutput() {
   // Need to output the individual commands for each pairing
   // For a 1,2,3,4 match, this would be 6 commands
+  // 1: 1v2, 1v3, 1v4; 2: 2v3, 2v4; 3: 3v4
   // For a 1,2,3 (or 1,1,3), it would be 3 commands
   // for a 1,2 (or 1,1), just 1 command
   // Have to test for ties
+  console.log([`${defaultCommand} #1`]);
+}
+
+function checkForTies() {
+  let myData = Object.keys(gameState).map((key) => gameState[key]);
+  let uniqueValues = new Set(myData.map((v) => v.place));
+
+  if (uniqueValues.size < myData.length) {
+    console.log("duplicates found");
+  }
+  console.log(myData);
+  console.log(uniqueValues);
+}
+
+// Build each pairing to output as a string, then paste into Discord.
+function buildPairings(o) {
+  console.log([
+    [o[1], o[2]],
+    [o[1], o[3]],
+    [o[1], o[4]],
+    [o[2], o[3]],
+    [o[2], o[4]],
+    [o[3], o[4]],
+  ]);
 }
 
 function reset() {
-  let fields = document.querySelectorAll("input");
-  fields.forEach((e) => (e.value = ""));
-  document.getElementById("results").value = "/game record leaderboard: MGSR 1v1 result:";
+  document.forms["mainform"].reset();
+  // let fields = document.querySelectorAll("input");
+  // fields.forEach((e) => (e.value = ""));
+  document.getElementById("results").value = defaultCommand;
 }
 
 function copyClipboard() {
@@ -119,6 +190,7 @@ function copyClipboard() {
   navigator.clipboard.writeText(copyText.value);
 }
 
+document.addEventListener("load", reset());
 /* Function below works on the leaderboard page, not actually this page.
 I use it to get the list of users and IDs. It's more of a periodic thing.
 This is for Pat and the Homies server.

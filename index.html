@@ -97,36 +97,42 @@
         <h1>MARIO GOLF <span style="display: block;">SUPER RUSH</span></h1>
         <h2>Team Up Bot <span style="display: block;">Game Results Tool</span></h2>
     </div>
-    <div class="fairway">
-       
+    <form id="mainform" class="fairway">
+        <div id="1" onchange="updateState()">
         <label for="placement">Place:</label>
-        <input class="place" type="number" min="1" max="4" value="" id="placement1" list="placements">
-        <select  name="playerlist" list="players" id="firstplace">
-            <option value="none" selected disabled hidden>Select a player</option>
-        </select>
+            <input class="place" type="number" min="1" max="4" value="" id="placement1" list="placements">
+                <select  name="playerlist" list="players" id="firstplace">
+                    <option value="none" selected disabled hidden>Select a player</option>
+                </select>
             <button id="1st" onclick="AddResult(this)">Add</button>
-        <br>
+        </div>
+            <br>
+        <div id="2" onchange="updateState()">
         <label for="placement">Place:</label>
-        <input class="place" type="number" min="1" max="4" value="" id="placement2" list="placements">
-        <select  name="playerlist" list="players" id="secondplace">
-            <option value="none" selected disabled hidden>Select a player</option>
-        </select>
+            <input class="place" type="number" min="1" max="4" value="" id="placement2" list="placements">
+                <select  name="playerlist" list="players" id="secondplace">
+                    <option value="none" selected disabled hidden>Select a player</option>
+                </select>
             <button id="2nd" onclick="AddResult(this)">Add</button>
-        <br>
+        </div>
+            <br>
+        <div id="3" onchange="updateState()">
         <label for="placement">Place:</label>
-        <input class="place" type="number" min="1" max="4" value="" id="placement3" list="placements">
-        <select  name="playerlist" list="players" id="thirdplace">
-            <option value="none" selected disabled hidden>Select a player</option>
-        </select>
+            <input class="place" type="number" min="1" max="4" value="" id="placement3" list="placements">
+                <select  name="playerlist" list="players" id="thirdplace">
+                    <option value="none" selected disabled hidden>Select a player</option>
+                </select>
             <button id="3rd" onclick="AddResult(this)">Add</button>  
-        <br>
+        </div>
+            <br>
+        <div id="4" onchange="updateState()">
         <label for="placement">Place:</label>
-        <input class="place" type="number" min="1" max="4" value="" id="placement4" list="placements" onchange="(function(){console.log(this.value)})()">
-        <select  name="playerlist" list="players" id="fourthplace">
-            <option value="none" selected disabled hidden>Select a player</option>
-        </select>
+            <input id="placement4" class="place" type="number" min="1" max="4" value="" list="placements">
+                <select  name="playerlist" list="players" id="fourthplace">
+                    <option value="none" selected disabled hidden>Select a player</option>
+                </select>
             <button id="4th" onclick="AddResult(this)">Add</button>
-        
+        </div>
         <p>
             <button id="ffa" onclick="">Output FFA</button>
         </p>
@@ -138,7 +144,7 @@
           <option value="4">
         </datalist>
 
-    </div>
+    </form>
     <div class="fairway">
         
             <label for="results">Results Command</label><br>
