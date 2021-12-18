@@ -27,7 +27,7 @@
         
         textarea {
             font: 400 14px/22px Google Sans Text,Arial,Helvetica,sans-serif;
-            width: 18em;
+            width: 30vw;
             height: 6em;
         }
 
@@ -88,6 +88,11 @@
             width: 2.4em;
         }
 
+        .result {
+            display: block;
+            width: 32rem
+        }
+
     </style>
 </head>
 
@@ -133,10 +138,7 @@
                 </select>
             <button id="4th" onclick="AddResult(this)">Add</button>
         </div>
-        <p>
-            <button id="ffa" onclick="">Output FFA</button>
-        </p>
-
+        
         <datalist id="placements">
           <option value="1">
           <option value="2">
@@ -145,13 +147,17 @@
         </datalist>
 
     </form>
-    <div class="fairway">
+    <p>
+        <button id="ffa" onclick="ffaOutput(gameState)">Output FFA</button>
+    </p>
+    <div id="ResultsArea" class="fairway">
         
             <label for="results">Results Command</label><br>
             <textarea id="results">/game record leaderboard: MGSR 1v1 result:</textarea>
             <br>
         <button onclick="reset()">Reset</button>&nbsp;<button onclick="copyClipboard()">Copy to Clipboard</button>
     </div>
+
     </main>
 
     

@@ -59,7 +59,6 @@ userIds.forEach((item) => {
   list[1].appendChild(option2);
   list[2].appendChild(option3);
   list[3].appendChild(option4);
-  debugger;
 });
 
 // Need to update global object on changes
@@ -134,22 +133,46 @@ function updateState() {
       user: users[3],
     },
   });
-  console.log(gameState);
   //need to add `<@!${ }>` around usernames, for proper command in Discord.
 }
 
-function ffaOutput() {
+function ffaOutput(o) {
   // Need to output the individual commands for each pairing
   // For a 1,2,3,4 match, this would be 6 commands
   // 1: 1v2, 1v3, 1v4; 2: 2v3, 2v4; 3: 3v4
   // For a 1,2,3 (or 1,1,3), it would be 3 commands
   // for a 1,2 (or 1,1), just 1 command
   // Have to test for ties
-  console.log([`${defaultCommand} #1`]);
+  let pairings = getPairings(o);
+  // let input = document.getElementById("results2");
+  let pairList = pairings.map((e) => {
+    // `${defaultCommand} #${e[0].place} <@!${e[0].user}> #${e[1].place} <@!${e[1].user}>`;
+    let f = document.createElement("input");
+    f.type = "text";
+    //f.style = "display: block; width: 32rem; margin: .2em";
+    f.setAttribute("class", "result");
+    f.value = `${defaultCommand} #${e[0].place} <@!${e[0].user}> #${e[1].place} <@!${e[1].user}>`;
+    document.getElementById("ResultsArea").appendChild(f);
+  });
+  //Trying to outut 6 different possible games for a FFA game
+  console.log(pairList);
+  pairList.forEach(
+    (e) => {
+      console.log(e);
+    }
+    /* if (e[0].place == e[1].place) {
+      f.value = `${defaultCommand} #1 <@!${e[0].user}> #1 <@!${e[1].user}>`;
+      document.getElementById("ResultsArea").appendChild(f);
+    } else {
+      f.value = `${defaultCommand} #1 <@!${e[0].user}> #2 <@!${e[1].user}>`;
+      document.getElementById("ResultsArea").appendChild(f);
+    } */
+  );
 }
 
 function checkForTies() {
   let myData = Object.keys(gameState).map((key) => gameState[key]);
+  0;
   let uniqueValues = new Set(myData.map((v) => v.place));
 
   if (uniqueValues.size < myData.length) {
@@ -159,17 +182,19 @@ function checkForTies() {
   console.log(uniqueValues);
 }
 
-// Build each pairing to output as a string, then paste into Discord.
-function buildPairings(o) {
-  console.log([
+function getPairings(o) {
+  return [
     [o[1], o[2]],
     [o[1], o[3]],
     [o[1], o[4]],
     [o[2], o[3]],
     [o[2], o[4]],
     [o[3], o[4]],
-  ]);
+  ];
 }
+
+// Build each pairing to output as a string, then paste into Discord.
+let pairings = getPairings(gameState);
 
 function reset() {
   document.forms["mainform"].reset();
